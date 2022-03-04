@@ -212,6 +212,7 @@ public class quesAfterKthNode {
           return slow.data;
         }
 
+        //Mid of LL
         public int mid(){
           Node fast = head;
           Node slow = head;
@@ -224,6 +225,7 @@ public class quesAfterKthNode {
           return slow.data;
         }
 
+        //Merge 2 sorted LL
         public static LinkedList mergeTwoSortedLists(LinkedList l1, LinkedList l2) {
           Node one = l1.head;
           Node two = l2.head;
@@ -253,6 +255,7 @@ public class quesAfterKthNode {
           return res;
         }
 
+        //Merge Sort in LL
         public static Node midNode(Node head, Node tail){
           Node fast =  head;
           Node slow = head;
@@ -279,6 +282,7 @@ public class quesAfterKthNode {
           return res;
         }
 
+        //Remove Duplicates from LL
         public void removeDuplicates(){
           LinkedList ans = new LinkedList();
           while(this.size > 0){
@@ -294,6 +298,7 @@ public class quesAfterKthNode {
           this.size = ans.size;
         }
         
+        //Odd Even LL
         public void oddEven(){
           LinkedList even = new LinkedList();
           LinkedList odd = new LinkedList();
@@ -328,6 +333,7 @@ public class quesAfterKthNode {
           }
         }
 
+        //k reverse in LL
         public void kReverse(int k) {
           LinkedList prev = null;
     
@@ -399,6 +405,88 @@ public class quesAfterKthNode {
           tail = temp;
         }
 
+        //Is LL a Palidrome?
+        Node pLeft;
+        private boolean palidromeHelper(Node right){
+          if(right == null){
+            return true;
+          }
+          //recAns se yeh last element tak pauch jayega and then base case se pauchne ke baad return karega and phir neeche ke steps chalenge
+          boolean recAns = palidromeHelper(right.next);  
+          if(recAns == false){
+            return false;
+          }else if(pLeft.data != right.data){
+            return false;
+          }else{
+            pLeft = pLeft.next;
+            return true;
+          }    
+        }
+        public boolean IsPalindrome() {
+          pLeft = this.head;
+          return palidromeHelper(head);
+        }
+
+        //Fold a LL
+        Node left;
+        private void foldHelper(Node right, int count){
+          if(right == null){
+            return;
+          }
+
+          foldHelper(right.next, count + 1);
+          if(count > size/2){
+            Node temp = left.next;
+            left.next = right;
+            right.next = temp;
+            left = temp;
+          }
+          else if(count == size/2){
+            tail = right;
+            tail.next = null;
+          }
+        }
+        public void fold() {
+          left = head;
+          foldHelper(head, 0);
+        }
+
+        //add two LL
+        public static int addListHelper(Node one, int pv1, Node two, int pv2, LinkedList res){
+          if(one == null && two == null){
+            return 0;     //returning carry = 0;
+          }
+    
+          int data = 0;
+          if(pv1 > pv2){
+            int oldCarry = addListHelper(one.next, pv1 - 1, two, pv2, res);
+            data = one.data + oldCarry;
+          }
+          else if(pv1 < pv2){
+            int oldCarry = addListHelper(one, pv1, two.next, pv2-1, res);
+            data = two.data + oldCarry;
+          }
+          else{
+            //pv1 == pv2
+            int oldCarry = addListHelper(one.next, pv1 - 1, two.next, pv2 - 1, res);
+            data = one.data + two.data + oldCarry;
+          }
+    
+          int newData = data % 10;
+          int newCarry = data / 10;
+          res.addFirst(newData);
+          return newCarry;
+        }
+    
+        public static LinkedList addTwoLists(LinkedList one, LinkedList two) {
+          LinkedList res = new LinkedList();
+          int oldCarry = addListHelper(one.head, one.size, two.head, two.size, res);
+          if(oldCarry > 0){
+            res.addFirst(oldCarry);
+          }
+          return res;
+        }
+        
       }
     
       public static void main(String[] args) throws Exception {
