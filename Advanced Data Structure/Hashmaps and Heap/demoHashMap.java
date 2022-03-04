@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.*;
+// import java.io.*;
 
 public class demoHashMap{
     public static void main(String[] args) {
@@ -24,13 +24,13 @@ public class demoHashMap{
         
         //get
         int indData = hm.get("India");
-        // System.out.println(indData);
+        System.out.println(indData);
         
         boolean isChinaPresent = hm.containsKey("China");
         boolean isBangladeshPresent = hm.containsKey("Bangladesh");
         
-        // System.out.println(isChinaPresent);
-        // System.out.println(isBangladeshPresent);
+        System.out.println(isChinaPresent);
+        System.out.println(isBangladeshPresent);
         
         //keySet
         // HashSet<String> keys = hm.keySet(); 

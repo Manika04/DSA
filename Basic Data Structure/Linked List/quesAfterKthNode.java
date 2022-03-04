@@ -451,6 +451,30 @@ public class quesAfterKthNode {
           foldHelper(head, 0);
         }
 
+        //Intersection point of LL
+        public static int findIntersection(LinkedList one, LinkedList two){
+          Node c1 = one.head;
+          Node c2 = two.head;
+          
+          //calculating d so that dono LL ke pointer same distance se ho intersection point se
+          int d = Math.abs(one.size - two.size);
+          if(one.size > two.size){
+            for(int i = 0; i < d; i++){
+              c1 = c1.next;        }
+          }
+          else{
+            for(int i = 0; i < d; i++){
+              c2 = c2.next;
+            }
+          }
+    
+          while(c1 != c2){
+            c1 = c1.next;
+            c2 = c2.next;
+          }
+          return c1.data; // return c2.data;
+        }
+
         //add two LL
         public static int addListHelper(Node one, int pv1, Node two, int pv2, LinkedList res){
           if(one == null && two == null){

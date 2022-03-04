@@ -32,17 +32,16 @@ public class display {
         }
     
         public void display(){
-            if(size == 0)
-                return;
-                
-          Node curr = head;
-          
-          while(curr != null){
-              System.out.print(curr.data + " ");
-              curr = curr.next;
+          if(size == 0){
+            return;
           }
-              System.out.println();
-          
+          Node temp = head;
+          while(temp != null){
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+          }
+    
+          System.out.println();
         }
       }
     
