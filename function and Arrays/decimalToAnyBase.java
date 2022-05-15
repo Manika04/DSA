@@ -13,10 +13,11 @@ public class decimalToAnyBase {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int b = sc.nextInt();
-        int ans = getValueInBase(n, b);
-        System.out.println(ans);
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
+            int b = sc.nextInt();
+            int ans = getValueInBase(n, b);
+            System.out.println(ans);
+        }
     }
 }

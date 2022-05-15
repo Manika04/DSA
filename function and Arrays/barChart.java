@@ -12,7 +12,7 @@ public class barChart{
         return max;
     }
 
-    public static void barChart(int [] arr){
+    public static void barCharts(int [] arr){
         int height = maximum(arr);
         
         for(int h = height ; h>=1 ; h--){
@@ -29,13 +29,14 @@ public class barChart{
     }
 
 public static void main(String[] args) throws Exception {
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    int[] arr = new int[n];
-    for(int i = 0; i < n; i++){
-        arr[i] = sc.nextInt();
+    try (Scanner sc = new Scanner(System.in)) {
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
+        barCharts(arr);
     }
-    barChart(arr);
  }
 
 }

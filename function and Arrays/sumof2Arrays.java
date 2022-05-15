@@ -43,19 +43,20 @@ public class sumof2Arrays {
     }
 
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n1 = sc.nextInt();
-        int[] A = new int[n1];
-        for(int i = 0; i < n1; i++){
-            A[i] = sc.nextInt();
-        }
+        try (Scanner sc = new Scanner(System.in)) {
+            int n1 = sc.nextInt();
+            int[] A = new int[n1];
+            for(int i = 0; i < n1; i++){
+                A[i] = sc.nextInt();
+            }
 
-        int n2 = sc.nextInt();
-        int[] B = new int[n2];
-        for(int i = 0; i < n2; i++){
-            B[i] = sc.nextInt();
-        }
+            int n2 = sc.nextInt();
+            int[] B = new int[n2];
+            for(int i = 0; i < n2; i++){
+                B[i] = sc.nextInt();
+            }
 
-        sumOfArr(A,B);
+            sumOfArr(A,B);
+        }
     }
 }

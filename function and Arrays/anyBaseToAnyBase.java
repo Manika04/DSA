@@ -30,12 +30,13 @@ public class anyBaseToAnyBase{
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int b1 = sc.nextInt();
-        int b2 = sc.nextInt();
-        int ans = anyBaseToAnybase(n, b1, b2);
-        System.out.println(ans);
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
+            int b1 = sc.nextInt();
+            int b2 = sc.nextInt();
+            int ans = anyBaseToAnybase(n, b1, b2);
+            System.out.println(ans);
+        }
     }
     
 }

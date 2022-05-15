@@ -13,11 +13,12 @@ public class digitFrequency {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int d = sc.nextInt();
-        int ans = getDigitFrequency(n, d);
-        System.out.println(ans);
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
+            int d = sc.nextInt();
+            int ans = getDigitFrequency(n, d);
+            System.out.println(ans);
+        }
     }
     
 }
