@@ -45,4 +45,32 @@ class Tree{
       
       return ans;
     }
+    
+    //LC 199
+    // public List<Integer> rightSideView(TreeNode root) {
+    //     ArrayList<Integer> ans = new ArrayList<>();
+    //     if(root == null)
+    //         return ans;
+        
+    //     Queue<TreeNode> qu = new LinkedList<>();
+    //     qu.add(root);
+        
+    //     while(qu.size() > 0){
+    //         int size = qu.size();
+            
+    //         for(int i = 0; i < size; i++){
+    //             TreeNode temp = qu.remove();
+    //             if(i == size - 1)
+    //                 ans.add(temp.val);
+                
+    //             if(temp.left != null)
+    //                 qu.add(temp.left);
+                
+    //             if(temp.right != null)
+    //                 qu.add(temp.right);
+    //         }
+    //     }
+        
+    //     return ans;
+    // }
 }
