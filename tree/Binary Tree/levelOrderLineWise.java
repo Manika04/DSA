@@ -99,6 +99,40 @@ public class levelOrderLineWise {
     }
   }
 
+  public static class LOPair {
+    Node node;
+    int vl; //vertical level
+
+    LOPair(Node node, int vl) {
+      this.node = node;
+      this.vl = vl;
+    }
+  }
+  public static void levelOrderPair(Node node) {
+    Queue<LOPair> qu = new LinkedList<>();
+    qu.add(new LOPair(node, 1));
+    int cl = 1; //current level
+
+    while(qu.size() > 0){
+      LOPair loPair = qu.remove();
+      if(loPair.vl > cl){
+        System.out.println();
+        cl = loPair.vl;
+      }
+
+      System.out.print(loPair.node.data + " ");
+      if(loPair.node.left != null){
+        LOPair lpair = new LOPair(loPair.node.left, loPair.vl + 1);
+        qu.add(lpair);
+      }
+
+      if(loPair.node.right != null){
+        LOPair rpair = new LOPair(loPair.node.right, loPair.vl + 1);
+        qu.add(rpair);
+      }
+    }
+  }
+
   public static void levelOrderLW(Node node) {
     // write your code here
 
